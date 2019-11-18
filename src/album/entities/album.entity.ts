@@ -30,55 +30,55 @@ export class AlbumEntity {
     @Type(() => String)
     auteur: string;
 
-    @ApiModelProperty({ description: 'Photo0', example: '' })
+    @ApiModelProperty({ description: 'Photo0'})
     @Expose()
     @Type(() => AlbumPhotoEntity)
-    photo0: Photo;
+    photo0: AlbumPhotoEntity;
 
-    @ApiModelProperty({ description: 'Photo1', example: '' })
+    @ApiModelProperty({ description: 'Photo1'})
     @Expose()
     @Type(() => AlbumPhotoEntity)
-    photo1: Photo;
+    photo1: AlbumPhotoEntity;
 
-    @ApiModelProperty({ description: 'Photo2', example: '' })
+    @ApiModelProperty({ description: 'Photo2'})
     @Expose()
     @Type(() => AlbumPhotoEntity)
-    photo2: Photo;
+    photo2: AlbumPhotoEntity;
 
-    @ApiModelProperty({ description: 'Photo3', example: '' })
+    @ApiModelProperty({ description: 'Photo3'})
     @Expose()
     @Type(() => AlbumPhotoEntity)
-    photo3: Photo;
+    photo3: AlbumPhotoEntity;
 
-    @ApiModelProperty({ description: 'Photo4', example: '' })
+    @ApiModelProperty({ description: 'Photo4'})
     @Expose()
     @Type(() => AlbumPhotoEntity)
-    photo4: Photo;
+    photo4: AlbumPhotoEntity;
 
-    @ApiModelProperty({ description: 'Photo5', example: '' })
+    @ApiModelProperty({ description: 'Photo5'})
     @Expose()
     @Type(() => AlbumPhotoEntity)
-    photo5: Photo;
+    photo5: AlbumPhotoEntity;
 
-    @ApiModelProperty({ description: 'Photo6', example: '' })
+    @ApiModelProperty({ description: 'Photo6'})
     @Expose()
     @Type(() => AlbumPhotoEntity)
-    photo6: Photo;
+    photo6: AlbumPhotoEntity;
 
-    @ApiModelProperty({ description: 'Photo7', example: '' })
+    @ApiModelProperty({ description: 'Photo7'})
     @Expose()
     @Type(() => AlbumPhotoEntity)
-    photo7: Photo;
+    photo7: AlbumPhotoEntity;
 
-    @ApiModelProperty({ description: 'Photo8', example: '' })
+    @ApiModelProperty({ description: 'Photo8'})
     @Expose()
     @Type(() => AlbumPhotoEntity)
-    photo8: Photo;
+    photo8: AlbumPhotoEntity;
 
-    @ApiModelProperty({ description: 'Photo9', example: '' })
+    @ApiModelProperty({ description: 'Photo9'})
     @Expose()
     @Type(() => AlbumPhotoEntity)
-    photo9: Photo;
+    photo9: AlbumPhotoEntity;
 
 
 
