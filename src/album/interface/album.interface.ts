@@ -20,6 +20,7 @@ export interface Album {
 
 export interface Photo {
     path: string;
+    titre: string;
     description: string;
     auteur: string;
 }

@@ -10,6 +10,11 @@ export class AlbumEntity {
     @Type(() => String)
     id: string;
 
+    @ApiModelProperty({ description: 'Titre de l\'album', example: 'Paysages' })
+    @Expose()
+    @Type(() => String)
+    titre: string;
+
     @ApiModelProperty({ description: 'Photo URL', example: 'https://randomuser.me/portraits/men/55.jpg' })
     @Expose()
     @Type(() => String)
@@ -23,12 +28,59 @@ export class AlbumEntity {
     @ApiModelProperty({ description: 'Auteur de l\'album', example: 'Julien BAILLY' })
     @Expose()
     @Type(() => String)
-    auteur?: string;
+    auteur: string;
 
-    @ApiModelProperty({ description: 'Liste des photos', example: 'photo1.jpg, photo2.jpg, photo3.jpg' })
+    @ApiModelProperty({ description: 'Photo0', example: '' })
     @Expose()
     @Type(() => AlbumPhotoEntity)
-    photos: Photo[];
+    photo0: Photo;
+
+    @ApiModelProperty({ description: 'Photo1', example: '' })
+    @Expose()
+    @Type(() => AlbumPhotoEntity)
+    photo1: Photo;
+
+    @ApiModelProperty({ description: 'Photo2', example: '' })
+    @Expose()
+    @Type(() => AlbumPhotoEntity)
+    photo2: Photo;
+
+    @ApiModelProperty({ description: 'Photo3', example: '' })
+    @Expose()
+    @Type(() => AlbumPhotoEntity)
+    photo3: Photo;
+
+    @ApiModelProperty({ description: 'Photo4', example: '' })
+    @Expose()
+    @Type(() => AlbumPhotoEntity)
+    photo4: Photo;
+
+    @ApiModelProperty({ description: 'Photo5', example: '' })
+    @Expose()
+    @Type(() => AlbumPhotoEntity)
+    photo5: Photo;
+
+    @ApiModelProperty({ description: 'Photo6', example: '' })
+    @Expose()
+    @Type(() => AlbumPhotoEntity)
+    photo6: Photo;
+
+    @ApiModelProperty({ description: 'Photo7', example: '' })
+    @Expose()
+    @Type(() => AlbumPhotoEntity)
+    photo7: Photo;
+
+    @ApiModelProperty({ description: 'Photo8', example: '' })
+    @Expose()
+    @Type(() => AlbumPhotoEntity)
+    photo8: Photo;
+
+    @ApiModelProperty({ description: 'Photo9', example: '' })
+    @Expose()
+    @Type(() => AlbumPhotoEntity)
+    photo9: Photo;
+
+
 
     /**
      * Class constructor

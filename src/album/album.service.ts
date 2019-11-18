@@ -22,12 +22,12 @@ export class AlbumService {
     /**
      * Returns all existing album in the list
      *
-     * @returns {Observable<Album[] | void>}
+     * @returns {Observable<AlbumEntity[] | void>}
      */
-    findAll(): Observable<Album[] | void> {
+    findAll(): Observable<AlbumEntity[] | void> {
         return of(this._album)
             .pipe(
-                map(_ => (!!_ && !!_.length) ? _ : undefined),
+                map(_ => (!!_ && !!_.length) ? _.map(__ => new AlbumEntity(__)) : undefined),
             );
     }
 
@@ -36,15 +36,15 @@ export class AlbumService {
      *
      * @param {string} id of the album
      *
-     * @returns {Observable<Album>}
+     * @returns {Observable<AlbumEntity>}
      */
-    findOne(id: string): Observable<Album> {
+    findOne(id: string): Observable<AlbumEntity> {
         return from(this._album)
             .pipe(
                 find(_ => _.id === id),
                 flatMap(_ =>
                     !!_ ?
-                        of(_) :
+                        of(new AlbumEntity(_)) :
                         throwError(new NotFoundException(`Album with id '${id}' not found`)),
                 ),
             );
@@ -55,9 +55,9 @@ export class AlbumService {
      *
      * @param album to create
      *
-     * @returns {Observable<Album>}
+     * @returns {Observable<AlbumEntity>}
      */
-    create(album: CreateAlbumDto): Observable<Album> {
+    create(album: CreateAlbumDto): Observable<AlbumEntity> {
         return from(this._addAlbum(album));
     }
 
@@ -66,11 +66,11 @@ export class AlbumService {
      *
      * @param album to add
      *
-     * @returns {Observable<Album>}
+     * @returns {Observable<AlbumEntity>}
      *
      * @private
      */
-    private _addAlbum(album: CreateAlbumDto): Observable<Album> {
+    private _addAlbum(album: CreateAlbumDto): Observable<AlbumEntity> {
         return of(album)
             .pipe(
                 map(_ =>
@@ -79,6 +79,7 @@ export class AlbumService {
                     }) as Album,
                 ),
                 tap(_ => this._album = this._album.concat(_)),
+                map(_ => new AlbumEntity(_)),
             );
     }
 
@@ -99,13 +100,13 @@ export class AlbumService {
      * @param {string} id of the album to update
      * @param album data to update
      *
-     * @returns {Observable<Album>}
+     * @returns {Observable<AlbumEntity>}
      */
-    update(id: string, album: UpdateAlbumDto): Observable<Album> {
+    update(id: string, album: UpdateAlbumDto): Observable<AlbumEntity> {
         return this._findAlbumIndexOfList(id)
             .pipe(
                 tap(_ => Object.assign(this._album[ _ ], album)),
-                map(_ => this._album[ _ ]),
+                map(_ => new AlbumEntity(this._album[ _ ])),
             );
     }
 

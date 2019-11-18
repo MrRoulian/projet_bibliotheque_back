@@ -3,10 +3,10 @@ import { ApiModelProperty } from '@nestjs/swagger';
 
 @Exclude()
 export class AlbumPhotoEntity {
-    @ApiModelProperty({ description: 'Unique identifier in the database', example: '5763cd4dc378a38ecd387737' })
+    @ApiModelProperty({ description: 'Titre de la photo', example: 'Chat.jpg' })
     @Expose()
     @Type(() => String)
-    id: string;
+    titre: string;
 
     @ApiModelProperty({ description: 'Photo URL', example: 'https://randomuser.me/portraits/men/55.jpg' })
     @Expose()
@@ -21,5 +21,5 @@ export class AlbumPhotoEntity {
     @ApiModelProperty({ description: 'Auteur de la photo', example: 'Julien BAILLY' })
     @Expose()
     @Type(() => String)
-    auteur?: string;
+    auteur: string;
 }

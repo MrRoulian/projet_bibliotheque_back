@@ -15,14 +15,13 @@ async function bootstrap(config: AppConfig, swaggerConfig: SwaggerConfig) {
       new FastifyAdapter({ logger: true }),
   );
 
-  /*
   // use global pipe validation
   app.useGlobalPipes(
       new ValidationPipe({
         whitelist: true,
         forbidNonWhitelisted: true,
       }),
-  );*/
+  );
 
   // create swagger options
   const options = new DocumentBuilder()
