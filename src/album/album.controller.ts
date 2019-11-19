@@ -8,7 +8,7 @@ import {
     ApiImplicitParam,
     ApiNoContentResponse,
     ApiNotFoundResponse,
-    ApiOkResponse
+    ApiOkResponse, ApiUseTags,
 } from '@nestjs/swagger';
 import {AlbumEntity} from './entities/album.entity';
 import {CreateAlbumDto} from './dto/create-album.dto';
@@ -16,6 +16,7 @@ import {UpdateAlbumDto} from './dto/update-album.dto';
 import {HandlerParams} from './validators/handler-params';
 import {AlbumInterceptor} from './interceptors/album-interceptor';
 
+@ApiUseTags('album')
 @Controller('album')
 @UseInterceptors(ClassSerializerInterceptor)
 @UseInterceptors(AlbumInterceptor)

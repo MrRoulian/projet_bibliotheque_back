@@ -1,5 +1,5 @@
 import {Exclude, Expose, Type} from 'class-transformer';
-import { ApiModelProperty } from '@nestjs/swagger';
+import {ApiModelProperty, ApiModelPropertyOptional} from '@nestjs/swagger';
 
 @Exclude()
 export class AlbumPhotoEntity {
@@ -13,13 +13,13 @@ export class AlbumPhotoEntity {
     @Type(() => String)
     path: string;
 
-    @ApiModelProperty({ description: 'Description de la photo', example: 'Photo de chat' })
+    @ApiModelPropertyOptional({ description: 'Description de la photo', example: 'Photo de chat' })
     @Expose()
     @Type(() => String)
-    description: string;
+    description?: string;
 
-    @ApiModelProperty({ description: 'Auteur de la photo', example: 'Julien BAILLY' })
+    @ApiModelPropertyOptional({ description: 'Auteur de la photo', example: 'Julien BAILLY' })
     @Expose()
     @Type(() => String)
-    auteur: string;
+    auteur?: string;
 }

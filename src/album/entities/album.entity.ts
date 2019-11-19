@@ -1,6 +1,5 @@
 import {Exclude, Expose, Type} from 'class-transformer';
-import { ApiModelProperty } from '@nestjs/swagger';
-import {Photo} from '../interface/album.interface';
+import {ApiModelProperty, ApiModelPropertyOptional} from '@nestjs/swagger';
 import {AlbumPhotoEntity} from './album-photo.entity';
 
 @Exclude()
@@ -15,72 +14,70 @@ export class AlbumEntity {
     @Type(() => String)
     titre: string;
 
-    @ApiModelProperty({ description: 'Photo URL', example: 'https://randomuser.me/portraits/men/55.jpg' })
+    @ApiModelPropertyOptional({ description: 'Photo URL', example: 'https://randomuser.me/portraits/men/55.jpg' })
     @Expose()
     @Type(() => String)
     photo: string;
 
-    @ApiModelProperty({ description: 'Description d\' album', example: 'Contient de belles photos' })
+    @ApiModelPropertyOptional({ description: 'Description d\' album', example: 'Contient de belles photos' })
     @Expose()
     @Type(() => String)
     description: string;
 
-    @ApiModelProperty({ description: 'Auteur de l\'album', example: 'Julien BAILLY' })
+    @ApiModelPropertyOptional({ description: 'Auteur de l\'album', example: 'Julien BAILLY' })
     @Expose()
     @Type(() => String)
     auteur: string;
 
-    @ApiModelProperty({ description: 'Photo0'})
+    @ApiModelPropertyOptional({ description: 'Photo0'})
     @Expose()
     @Type(() => AlbumPhotoEntity)
     photo0: AlbumPhotoEntity;
 
-    @ApiModelProperty({ description: 'Photo1'})
+    @ApiModelPropertyOptional({ description: 'Photo1'})
     @Expose()
     @Type(() => AlbumPhotoEntity)
     photo1: AlbumPhotoEntity;
 
-    @ApiModelProperty({ description: 'Photo2'})
+    @ApiModelPropertyOptional({ description: 'Photo2'})
     @Expose()
     @Type(() => AlbumPhotoEntity)
     photo2: AlbumPhotoEntity;
 
-    @ApiModelProperty({ description: 'Photo3'})
+    @ApiModelPropertyOptional({ description: 'Photo3'})
     @Expose()
     @Type(() => AlbumPhotoEntity)
     photo3: AlbumPhotoEntity;
 
-    @ApiModelProperty({ description: 'Photo4'})
+    @ApiModelPropertyOptional({ description: 'Photo4'})
     @Expose()
     @Type(() => AlbumPhotoEntity)
     photo4: AlbumPhotoEntity;
 
-    @ApiModelProperty({ description: 'Photo5'})
+    @ApiModelPropertyOptional({ description: 'Photo5'})
     @Expose()
     @Type(() => AlbumPhotoEntity)
     photo5: AlbumPhotoEntity;
 
-    @ApiModelProperty({ description: 'Photo6'})
+    @ApiModelPropertyOptional({ description: 'Photo6'})
     @Expose()
     @Type(() => AlbumPhotoEntity)
     photo6: AlbumPhotoEntity;
 
-    @ApiModelProperty({ description: 'Photo7'})
+    @ApiModelPropertyOptional({ description: 'Photo7'})
     @Expose()
     @Type(() => AlbumPhotoEntity)
     photo7: AlbumPhotoEntity;
 
-    @ApiModelProperty({ description: 'Photo8'})
+    @ApiModelPropertyOptional({ description: 'Photo8'})
     @Expose()
     @Type(() => AlbumPhotoEntity)
     photo8: AlbumPhotoEntity;
 
-    @ApiModelProperty({ description: 'Photo9'})
+    @ApiModelPropertyOptional({ description: 'Photo9'})
     @Expose()
     @Type(() => AlbumPhotoEntity)
     photo9: AlbumPhotoEntity;
-
-
 
     /**
      * Class constructor

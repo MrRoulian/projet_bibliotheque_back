@@ -1,11 +1,12 @@
-import {Injectable, Logger, NotFoundException} from '@nestjs/common';
+import {Injectable, Logger, NotFoundException, UnprocessableEntityException} from '@nestjs/common';
 import {Album, Photo} from './interface/album.interface';
 import { ALBUM } from '../data/album';
 import {from, Observable, of, throwError} from 'rxjs';
-import {find, findIndex, flatMap, map, tap} from 'rxjs/operators';
+import {catchError, find, findIndex, flatMap, map, tap} from 'rxjs/operators';
 import {AlbumEntity} from './entities/album.entity';
 import {CreateAlbumDto} from './dto/create-album.dto';
 import {UpdateAlbumDto} from './dto/update-album.dto';
+import {AlbumDao} from './dao/album.dao';
 
 @Injectable()
 export class AlbumService {
@@ -15,8 +16,8 @@ export class AlbumService {
     /**
      * Class constructor
      */
-    constructor() {
-        this._album = [].concat(ALBUM).map(album => album);
+    constructor(private readonly _albumDao: AlbumDao) {
+        this._album = [].concat(ALBUM);
     }
 
     /**
@@ -25,9 +26,9 @@ export class AlbumService {
      * @returns {Observable<AlbumEntity[] | void>}
      */
     findAll(): Observable<AlbumEntity[] | void> {
-        return of(this._album)
+        return this._albumDao.find()
             .pipe(
-                map(_ => (!!_ && !!_.length) ? _.map(__ => new AlbumEntity(__)) : undefined),
+                map(_ => !!_ ? _.map(__ => new AlbumEntity(__)) : undefined),
             );
     }
 
@@ -39,9 +40,9 @@ export class AlbumService {
      * @returns {Observable<AlbumEntity>}
      */
     findOne(id: string): Observable<AlbumEntity> {
-        return from(this._album)
+        return this._albumDao.findById(id)
             .pipe(
-                find(_ => _.id === id),
+                catchError(e => throwError(new UnprocessableEntityException(e.message))),
                 flatMap(_ =>
                     !!_ ?
                         of(new AlbumEntity(_)) :

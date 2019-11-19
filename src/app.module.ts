@@ -1,9 +1,12 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { AlbumModule } from './album/album.module';
+import {MongooseModule, MongooseModuleOptions} from '@nestjs/mongoose';
+import * as Config from 'config';
 
 @Module({
-  imports: [AlbumModule],
+  imports: [
+      AlbumModule,
+      MongooseModule.forRoot(Config.get<string>('mongodb.uri'), Config.get<MongooseModuleOptions>('mongodb.options')),
+  ],
 })
 export class AppModule {}
