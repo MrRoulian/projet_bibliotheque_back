@@ -8,7 +8,7 @@ import {
     ApiImplicitParam,
     ApiNoContentResponse,
     ApiNotFoundResponse,
-    ApiOkResponse, ApiUseTags,
+    ApiOkResponse, ApiUnprocessableEntityResponse, ApiUseTags,
 } from '@nestjs/swagger';
 import {AlbumEntity} from './entities/album.entity';
 import {CreateAlbumDto} from './dto/create-album.dto';
@@ -49,6 +49,7 @@ export class AlbumController {
     @ApiOkResponse({ description: 'Retourne l\'album avec le bon "id"', type: AlbumEntity })
     @ApiNotFoundResponse({ description: 'Aucun album n\'existe dans a base de donnees avec cet "id"' })
     @ApiBadRequestResponse({ description: 'Parametre incorect' })
+    @ApiUnprocessableEntityResponse({ description: 'La requete ne peut pas etre effectue dans la base de donnees' })
     @ApiImplicitParam({ name: 'id', description: 'Unique identifiant d\'album dans la base de donnees', type: String })
     @Get(':id')
     findOne(@Param() params: HandlerParams): Observable<AlbumEntity> {
@@ -64,6 +65,7 @@ export class AlbumController {
      */
     @ApiCreatedResponse({ description: 'Album creer avec succes', type: AlbumEntity })
     @ApiBadRequestResponse({ description: 'Body incorect' })
+    @ApiUnprocessableEntityResponse({ description: 'La requete ne peut pas etre effectue dans la base de donnees' })
     @ApiImplicitBody({ name: 'CreateAlbumDto', description: 'Body pour creer l\'album', type: CreateAlbumDto })
     @Post()
     create(@Body() createAlbumDto: CreateAlbumDto): Observable<AlbumEntity> {
@@ -81,6 +83,7 @@ export class AlbumController {
     @ApiOkResponse({ description: 'Album modifie avec succes', type: AlbumEntity })
     @ApiNotFoundResponse({ description: 'L\'album avec cet id n\'existe pas dans la base de donnees' })
     @ApiBadRequestResponse({ description: 'Parametre ou body incorect' })
+    @ApiUnprocessableEntityResponse({ description: 'La requete ne peut pas etre effectue dans la base de donnees' })
     @ApiImplicitParam({ name: 'id', description: 'Unique identifiant d\'album dans la base de donnees', type: String })
     @ApiImplicitBody({ name: 'UpdateAlbumDto', description: 'Body a applique sur l\'album', type: UpdateAlbumDto })
     @Put(':id')
@@ -98,6 +101,7 @@ export class AlbumController {
     @ApiNoContentResponse({ description: 'Album supprime avec succes' })
     @ApiNotFoundResponse({ description: 'L\'album avec cet id n\'existe pas dans la base de donnees' })
     @ApiBadRequestResponse({ description: 'Parametre incorect' })
+    @ApiUnprocessableEntityResponse({ description: 'La requete ne peut pas etre effectue dans la base de donnees' })
     @ApiImplicitParam({ name: 'id', description: 'Unique identifiant d\'album dans la base de donnees', type: String })
     @Delete(':id')
     delete(@Param() params: HandlerParams): Observable<void> {
