@@ -1,8 +1,6 @@
-import {Injectable, Logger, NotFoundException, UnprocessableEntityException} from '@nestjs/common';
-import {Album, Photo} from './interface/album.interface';
-import { ALBUM } from '../data/album';
-import {from, Observable, of, throwError} from 'rxjs';
-import {catchError, find, findIndex, flatMap, map, tap} from 'rxjs/operators';
+import {Injectable, NotFoundException, UnprocessableEntityException} from '@nestjs/common';
+import {Observable, of, throwError} from 'rxjs';
+import {catchError, flatMap, map} from 'rxjs/operators';
 import {AlbumEntity} from './entities/album.entity';
 import {CreateAlbumDto} from './dto/create-album.dto';
 import {UpdateAlbumDto} from './dto/update-album.dto';
@@ -11,13 +9,10 @@ import {AlbumDao} from './dao/album.dao';
 @Injectable()
 export class AlbumService {
 
-    private _album: Album[];
-
     /**
      * Class constructor
      */
     constructor(private readonly _albumDao: AlbumDao) {
-        this._album = [].concat(ALBUM);
     }
 
     /**
@@ -59,40 +54,11 @@ export class AlbumService {
      * @returns {Observable<AlbumEntity>}
      */
     create(album: CreateAlbumDto): Observable<AlbumEntity> {
-        return from(this._addAlbum(album));
-    }
-
-    /**
-     * Add album with good data in album list
-     *
-     * @param album to add
-     *
-     * @returns {Observable<AlbumEntity>}
-     *
-     * @private
-     */
-    private _addAlbum(album: CreateAlbumDto): Observable<AlbumEntity> {
         return of(album)
             .pipe(
-                map(_ =>
-                    Object.assign(_, {
-                        id: this._createId(),
-                    }) as Album,
-                ),
-                tap(_ => this._album = this._album.concat(_)),
+                flatMap(_ => this._albumDao.create(_)),
                 map(_ => new AlbumEntity(_)),
             );
-    }
-
-    /**
-     * Creates a new id
-     *
-     * @returns {string}
-     *
-     * @private
-     */
-    private _createId(): string {
-        return `${new Date().getTime()}`;
     }
 
     /**
@@ -104,28 +70,10 @@ export class AlbumService {
      * @returns {Observable<AlbumEntity>}
      */
     update(id: string, album: UpdateAlbumDto): Observable<AlbumEntity> {
-        return this._findAlbumIndexOfList(id)
+        return this._albumDao.findByIdAndUpdate(id, album)
             .pipe(
-                tap(_ => Object.assign(this._album[ _ ], album)),
-                map(_ => new AlbumEntity(this._album[ _ ])),
-            );
-    }
-
-    /**
-     * Finds index of array for current album
-     *
-     * @param {string} id of the album to find
-     *
-     * @returns {Observable<number>}
-     *
-     * @private
-     */
-    private _findAlbumIndexOfList(id: string): Observable<number> {
-        return from(this._album)
-            .pipe(
-                findIndex(_ => _.id === id),
-                flatMap(_ => _ > -1 ?
-                    of(_) :
+                flatMap(_ => !!_ ?
+                    of(new AlbumEntity((_))) :
                     throwError(new NotFoundException(`Album with id '${id}' not found`)),
                 ),
             );
@@ -139,10 +87,13 @@ export class AlbumService {
      * @returns {Observable<void>}
      */
     delete(id: string): Observable<void> {
-        return this._findAlbumIndexOfList(id)
+        return this._albumDao.findByIdAndRemove(id)
             .pipe(
-                tap(_ => this._album.splice(_, 1)),
-                map(() => undefined),
+                catchError(e => throwError(new NotFoundException(e.message))),
+                flatMap(_ => !!_ ?
+                    of(undefined) :
+                    throwError(new NotFoundException(`Album with id '${id}' not found`)),
+                ),
             );
     }
 }
