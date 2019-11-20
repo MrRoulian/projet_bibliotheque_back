@@ -21,12 +21,10 @@ export const AlbumSchema = new mongoose.Schema({
     photo0: {
         path: {
             type: String,
-            required: true,
             trim: true,
         },
         titre: {
             type: String,
-            required: true,
             trim: true,
         },
         description: {
@@ -41,12 +39,10 @@ export const AlbumSchema = new mongoose.Schema({
     photo1: {
         path: {
             type: String,
-            required: true,
             trim: true,
         },
         titre: {
             type: String,
-            required: true,
             trim: true,
         },
         description: {
@@ -61,12 +57,10 @@ export const AlbumSchema = new mongoose.Schema({
     photo2: {
         path: {
             type: String,
-            required: true,
             trim: true,
         },
         titre: {
             type: String,
-            required: true,
             trim: true,
         },
         description: {
@@ -81,12 +75,10 @@ export const AlbumSchema = new mongoose.Schema({
     photo3: {
         path: {
             type: String,
-            required: true,
             trim: true,
         },
         titre: {
             type: String,
-            required: true,
             trim: true,
         },
         description: {
@@ -101,12 +93,10 @@ export const AlbumSchema = new mongoose.Schema({
     photo4: {
         path: {
             type: String,
-            required: true,
             trim: true,
         },
         titre: {
             type: String,
-            required: true,
             trim: true,
         },
         description: {
@@ -121,12 +111,10 @@ export const AlbumSchema = new mongoose.Schema({
     photo5: {
         path: {
             type: String,
-            required: true,
             trim: true,
         },
         titre: {
             type: String,
-            required: true,
             trim: true,
         },
         description: {
@@ -141,12 +129,10 @@ export const AlbumSchema = new mongoose.Schema({
     photo6: {
         path: {
             type: String,
-            required: true,
             trim: true,
         },
         titre: {
             type: String,
-            required: true,
             trim: true,
         },
         description: {
@@ -161,12 +147,10 @@ export const AlbumSchema = new mongoose.Schema({
     photo7: {
         path: {
             type: String,
-            required: true,
             trim: true,
         },
         titre: {
             type: String,
-            required: true,
             trim: true,
         },
         description: {
@@ -181,12 +165,10 @@ export const AlbumSchema = new mongoose.Schema({
     photo8: {
         path: {
             type: String,
-            required: true,
             trim: true,
         },
         titre: {
             type: String,
-            required: true,
             trim: true,
         },
         description: {
@@ -201,12 +183,10 @@ export const AlbumSchema = new mongoose.Schema({
     photo9: {
         path: {
             type: String,
-            required: true,
             trim: true,
         },
         titre: {
             type: String,
-            required: true,
             trim: true,
         },
         description: {

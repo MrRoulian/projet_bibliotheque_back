@@ -11,7 +11,7 @@ export class CreateAlbumDto {
     @IsNotEmpty()
     titre: string;
 
-    @ApiModelPropertyOptional({ description: 'Photo de couverture de l\'album', example: 'http://photo.com/paysage.jpg' })
+    @ApiModelPropertyOptional({ description: 'Photo de couverture de l\'album', example: 'https://visiter-voyager.info/wp-content/uploads/2019/05/paysage-nature-900x600.jpg' })
     @IsOptional()
     @IsString()
     @IsNotEmpty()

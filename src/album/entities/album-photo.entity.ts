@@ -3,15 +3,15 @@ import {ApiModelProperty, ApiModelPropertyOptional} from '@nestjs/swagger';
 
 @Exclude()
 export class AlbumPhotoEntity {
-    @ApiModelProperty({ description: 'Titre de la photo', example: 'Chat.jpg' })
+    @ApiModelPropertyOptional({ description: 'Titre de la photo', example: 'Chat.jpg' })
     @Expose()
     @Type(() => String)
-    titre: string;
+    titre?: string;
 
-    @ApiModelProperty({ description: 'Photo URL', example: 'https://randomuser.me/portraits/men/55.jpg' })
+    @ApiModelPropertyOptional({ description: 'Photo URL', example: 'https://visiter-voyager.info/wp-content/uploads/2019/05/paysage-nature-900x600.jpg' })
     @Expose()
     @Type(() => String)
-    path: string;
+    path?: string;
 
     @ApiModelPropertyOptional({ description: 'Description de la photo', example: 'Photo de chat' })
     @Expose()
