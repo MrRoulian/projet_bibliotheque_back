@@ -49,68 +49,68 @@ db.getCollection('albums').insertMany([
         },
     },
     {
-        "titre": "Album exemple",
-        "photo": "https://randomuser.me/portraits/men/55.jpg",
-        "description": "Contient de belles photos",
+        "titre": "Paysages",
+        "photo": "https://visiter-voyager.info/wp-content/uploads/2019/05/paysage-nature-900x600.jpg",
+        "description": "Un album qui vaut le coup",
         "auteur": "Julien BAILLY",
         "photo0": {
-            "titre": "Chat.jpg",
-            "path": "https://randomuser.me/portraits/men/55.jpg",
-            "description": "Photo de chat",
+            "path": "https://visiter-voyager.info/wp-content/uploads/2019/05/paysage-nature-900x600.jpg",
+            "titre": "Chat.png",
+            "description": "Un chat noir",
             "auteur": "Julien BAILLY"
         },
         "photo1": {
-            "titre": "Chat.jpg",
-            "path": "https://randomuser.me/portraits/men/55.jpg",
-            "description": "Photo de chat",
+            "path": "https://visiter-voyager.info/wp-content/uploads/2019/05/paysage-nature-900x600.jpg",
+            "titre": "Chat.png",
+            "description": "Un chat noir",
             "auteur": "Julien BAILLY"
         },
         "photo2": {
-            "titre": "Chat.jpg",
-            "path": "https://randomuser.me/portraits/men/55.jpg",
-            "description": "Photo de chat",
+            "path": "https://visiter-voyager.info/wp-content/uploads/2019/05/paysage-nature-900x600.jpg",
+            "titre": "Chat.png",
+            "description": "Un chat noir",
             "auteur": "Julien BAILLY"
         },
         "photo3": {
-            "titre": "Chat.jpg",
-            "path": "https://randomuser.me/portraits/men/55.jpg",
-            "description": "Photo de chat",
+            "path": "https://visiter-voyager.info/wp-content/uploads/2019/05/paysage-nature-900x600.jpg",
+            "titre": "Chat.png",
+            "description": "Un chat noir",
             "auteur": "Julien BAILLY"
         },
         "photo4": {
-            "titre": "Chat.jpg",
-            "path": "https://randomuser.me/portraits/men/55.jpg",
-            "description": "Photo de chat",
+            "path": "https://visiter-voyager.info/wp-content/uploads/2019/05/paysage-nature-900x600.jpg",
+            "titre": "Chat.png",
+            "description": "Un chat noir",
             "auteur": "Julien BAILLY"
         },
         "photo5": {
-            "titre": "Chat.jpg",
-            "path": "https://randomuser.me/portraits/men/55.jpg",
-            "description": "Photo de chat",
+            "path": "https://visiter-voyager.info/wp-content/uploads/2019/05/paysage-nature-900x600.jpg",
+            "titre": "Chat.png",
+            "description": "Un chat noir",
             "auteur": "Julien BAILLY"
         },
         "photo6": {
-            "titre": "Chat.jpg",
-            "path": "https://randomuser.me/portraits/men/55.jpg",
-            "description": "Photo de chat",
+            "path": "https://visiter-voyager.info/wp-content/uploads/2019/05/paysage-nature-900x600.jpg",
+            "titre": "Chat.png",
+            "description": "Un chat noir",
             "auteur": "Julien BAILLY"
         },
         "photo7": {
-            "titre": "Chat.jpg",
-            "path": "https://randomuser.me/portraits/men/55.jpg",
-            "description": "Photo de chat",
+            "path": "https://visiter-voyager.info/wp-content/uploads/2019/05/paysage-nature-900x600.jpg",
+            "titre": "Chat.png",
+            "description": "Un chat noir",
             "auteur": "Julien BAILLY"
         },
         "photo8": {
-            "titre": "Chat.jpg",
-            "path": "https://randomuser.me/portraits/men/55.jpg",
-            "description": "Photo de chat",
+            "path": "https://visiter-voyager.info/wp-content/uploads/2019/05/paysage-nature-900x600.jpg",
+            "titre": "Chat.png",
+            "description": "Un chat noir",
             "auteur": "Julien BAILLY"
         },
         "photo9": {
-            "titre": "Chat.jpg",
-            "path": "https://randomuser.me/portraits/men/55.jpg",
-            "description": "Photo de chat",
+            "path": "https://visiter-voyager.info/wp-content/uploads/2019/05/paysage-nature-900x600.jpg",
+            "titre": "Chat.png",
+            "description": "Un chat noir",
             "auteur": "Julien BAILLY"
         }
     },

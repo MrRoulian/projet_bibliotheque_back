@@ -2,7 +2,7 @@ import {IsNotEmpty, IsOptional, IsString} from 'class-validator';
 import {ApiModelProperty, ApiModelPropertyOptional} from '@nestjs/swagger';
 
 export class AlbumPhotoDto {
-    @ApiModelProperty({ description: 'url de l\'image', example: 'https://randomuser.me/portraits/men/55.jpg' })
+    @ApiModelProperty({ description: 'url de l\'image', example: 'https://visiter-voyager.info/wp-content/uploads/2019/05/paysage-nature-900x600.jpg' })
     @IsOptional()
     @IsString()
     path: string;
